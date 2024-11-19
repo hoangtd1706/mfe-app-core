@@ -1,0 +1,39 @@
+{
+    "name": "@canes/mfe-app-core-example",
+    "homepage": ".",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
+        "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
+        "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
+        "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    },
+    "overrides": {
+        "nth-check": "^2.0.1"
+    },
+    "dependencies": {
+        "@canes/mfe-app-core": "file:..",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@types/react-router-dom": "^5.3.3",
+        "axios": "^0.27.2",
+        "clsx": "^1.1.1",
+        "react": "file:../node_modules/react",
+        "react-dom": "file:../node_modules/react-dom",
+        "react-router-dom": "file:../node_modules/react-router-dom",
+        "react-scripts": "file:../node_modules/react-scripts"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

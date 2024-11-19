@@ -1,0 +1,62 @@
+{
+  "name": "@canes/mfe-app-core",
+  "version": "1.0.0",
+  "description": "Feature base React application",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "start": "npm-run-all --parallel watch start-example",
+    "start-example": "cd example && npm start",
+    "i-all": "npm i && cd example && npm i",
+    "eslint": "eslint --ext .tsx,.ts ./src -c .eslintrc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangtd1706/mfe-app-core.git"
+  },
+  "keywords": [
+    "canes",
+    "core"
+  ],
+  "author": "hoangtd1706",
+  "license": "MIT",
+  "homepage": "https://github.com/hoangtd1706/mfe-app-core#readme",
+  "files": [
+    "dist"
+  ],
+  "typings": "dist/index.d.ts",
+  "overrides": {
+    "nth-check": "^2.0.1"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "*",
+    "@rollup/plugin-image": "^3.0.3",
+    "@types/antd": "*",
+    "@types/moment": "*",
+    "@types/react-router-dom": "*",
+    "@types/styled-components": "*",
+    "antd": "*",
+    "axios": "*",
+    "moment": "*",
+    "react-router-dom": "*",
+    "rollup": "^2.79.2",
+    "rollup-plugin-delete": "^2.1.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "styled-components": "*",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@ant-design/icons": "^5.5.1",
+    "@types/antd": "^0.12.32",
+    "@types/moment": "^2.11.29",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.34",
+    "antd": "^5.22.1",
+    "axios": "^1.7.7",
+    "moment": "^2.30.1",
+    "react-router-dom": "^6.28.0",
+    "styled-components": "^6.1.13"
+  }
+}
