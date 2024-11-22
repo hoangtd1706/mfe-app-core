@@ -8,7 +8,7 @@ import Typography from "antd/es/typography";
 import { AppBarStl } from "./style";
 
 export default function AppBar(): JSX.Element {
-  const { openMenu, screenTitle, toggleMenu } = useAppContext();
+  const { openMenu, screenTitle, loading, toggleMenu } = useAppContext();
 
   const navigate = useNavigate();
 
@@ -43,6 +43,7 @@ export default function AppBar(): JSX.Element {
                   type={action.type ?? "default"}
                   icon={action.icon}
                   onClick={() => action.onClick()}
+                  loading={loading}
                 >
                   {action.title}
                 </Button>
