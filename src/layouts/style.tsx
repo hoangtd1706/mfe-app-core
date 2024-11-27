@@ -5,6 +5,7 @@ const menuWidth = 250;
 
 export const LayoutStl = {
   Wrap: styled.div<{ $openMenu: boolean }>`
+    position: relative;
     display: grid;
     grid-template-columns: ${({ $openMenu }) => ($openMenu ? menuWidth : 0)}px 1fr;
     width: 100%;
