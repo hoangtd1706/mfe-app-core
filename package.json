@@ -1,6 +1,6 @@
 {
   "name": "@canes/mfe-app-core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Feature base React application",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
