@@ -29,6 +29,11 @@ export interface AppStore {
 
   screenTitle?: ScreeTitleType;
   setScreenTitle: (v: ScreeTitleType) => void;
+
+  appInfo: {
+    appVersion: string;
+    serviceVersion: string;
+  };
 }
 
 export const AppContext = createContext<AppStore>({
@@ -45,4 +50,9 @@ export const AppContext = createContext<AppStore>({
 
   screenTitle: undefined,
   setScreenTitle: () => {},
+
+  appInfo: {
+    appVersion: "",
+    serviceVersion: "",
+  },
 });
