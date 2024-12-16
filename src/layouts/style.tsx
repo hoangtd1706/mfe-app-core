@@ -62,6 +62,7 @@ export const LayoutStl = {
 export const MenuStl = {
   Wrap: styled.div`
     display: flex;
+    flex-flow: column nowrap;
     width: 100%;
     height: 100%;
     overflow: hidden;
