@@ -3,9 +3,16 @@ import { AppContext, ScreeTitleType } from "./type";
 import useWindowSize, { DeviceType } from "../utils/useWindowSize";
 import { IUser } from "../types";
 
-type Props = PropsWithChildren & {};
+type Props = PropsWithChildren & {
+  appVersion: string;
+  serviceVersion: string;
+};
 
-export function AppContextProvider({ children }: Props): JSX.Element {
+export function AppContextProvider({
+  children,
+  appVersion,
+  serviceVersion,
+}: Props): JSX.Element {
   const windowSize = useWindowSize();
   const [loading, setLoading] = useState(true);
   const [deviceType, setDeviceType] = useState<DeviceType>(
@@ -49,6 +56,11 @@ export function AppContextProvider({ children }: Props): JSX.Element {
 
         screenTitle: screenTitle,
         setScreenTitle: setScreenTitle,
+
+        appInfo: {
+          appVersion: appVersion,
+          serviceVersion: serviceVersion,
+        },
       }}
     >
       {children}

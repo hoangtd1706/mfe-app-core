@@ -1,12 +1,17 @@
 import * as React from "react";
 import { MenuStl } from "./style";
 import { IModule } from "../types";
+import Space from "antd/es/space";
+import { ApiOutlined, AppstoreOutlined } from "@ant-design/icons";
+import { useAppContext } from "../contexts/app.context";
 
 type Props = {
   modules: IModule[];
 };
 
 export default function Menu({ modules }: Props): JSX.Element {
+  const { appInfo } = useAppContext();
+
   return (
     <MenuStl.Wrap>
       <MenuStl.Content>
@@ -26,6 +31,16 @@ export default function Menu({ modules }: Props): JSX.Element {
           </MenuStl.ModuleWrap>
         ))}
       </MenuStl.Content>
+      <MenuStl.Footer>
+        <Space>
+          <ApiOutlined />
+          <MenuStl.FooterText>{appInfo.serviceVersion}</MenuStl.FooterText>
+        </Space>
+        <Space>
+          <AppstoreOutlined />
+          <MenuStl.FooterText>{appInfo.appVersion}</MenuStl.FooterText>
+        </Space>
+      </MenuStl.Footer>
     </MenuStl.Wrap>
   );
 }

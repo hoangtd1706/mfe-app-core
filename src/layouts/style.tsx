@@ -1,3 +1,4 @@
+import Typography from "antd/es/typography";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -129,6 +130,19 @@ export const MenuStl = {
       background: transparent;
       opacity: 0.2;
     }
+  `,
+  Footer: styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 16px;
+    width: 100%;
+    height: 28px;
+    padding: 0 8px;
+    border-top: 1px solid #a8a8a8;
+  `,
+  FooterText: styled(Typography.Text)`
+    color: #fff;
   `,
 };
 
