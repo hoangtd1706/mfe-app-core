@@ -32,14 +32,19 @@ export default function Menu({ modules }: Props): JSX.Element {
         ))}
       </MenuStl.Content>
       <MenuStl.Footer>
-        <Space>
-          <ApiOutlined />
-          <MenuStl.FooterText>{appInfo.serviceVersion}</MenuStl.FooterText>
-        </Space>
-        <Space>
-          <AppstoreOutlined />
-          <MenuStl.FooterText>{appInfo.appVersion}</MenuStl.FooterText>
-        </Space>
+        {appInfo.serviceVersion && (
+          <Space>
+            <ApiOutlined />
+            <MenuStl.FooterText>{appInfo.serviceVersion}</MenuStl.FooterText>
+          </Space>
+        )}
+
+        {appInfo.appVersion && (
+          <Space>
+            <AppstoreOutlined />
+            <MenuStl.FooterText>{appInfo.appVersion}</MenuStl.FooterText>
+          </Space>
+        )}
       </MenuStl.Footer>
     </MenuStl.Wrap>
   );

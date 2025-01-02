@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { IUser } from "../types";
+import { IMe, IUser } from "../types";
 import { DeviceType } from "../utils/useWindowSize";
 
 export type ActionTitleType = {
@@ -30,9 +30,12 @@ export interface AppStore {
   screenTitle?: ScreeTitleType;
   setScreenTitle: (v: ScreeTitleType) => void;
 
+  me: IMe | undefined;
+  setMe: (me: IMe | undefined) => void;
+
   appInfo: {
-    appVersion: string;
-    serviceVersion: string;
+    appVersion: string | undefined;
+    serviceVersion: string | undefined;
   };
 }
 
@@ -50,6 +53,9 @@ export const AppContext = createContext<AppStore>({
 
   screenTitle: undefined,
   setScreenTitle: () => {},
+
+  me: undefined,
+  setMe: () => {},
 
   appInfo: {
     appVersion: "",
