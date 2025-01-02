@@ -14,6 +14,13 @@ export interface IApplication {
   isAllowAll: boolean;
 }
 
+export interface IMe {
+  id: string;
+  displayName: string;
+  mail: string;
+  employeeCode: string;
+}
+
 export interface IUser {
   id: string;
   mail: string;

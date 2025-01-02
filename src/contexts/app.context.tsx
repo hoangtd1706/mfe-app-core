@@ -1,11 +1,11 @@
 import { PropsWithChildren, useContext, useEffect, useState } from "react";
 import { AppContext, ScreeTitleType } from "./type";
 import useWindowSize, { DeviceType } from "../utils/useWindowSize";
-import { IUser } from "../types";
+import { IMe, IUser } from "../types";
 
 type Props = PropsWithChildren & {
-  appVersion: string;
-  serviceVersion: string;
+  appVersion: string | undefined;
+  serviceVersion: string | undefined;
 };
 
 export function AppContextProvider({
@@ -18,6 +18,7 @@ export function AppContextProvider({
   const [deviceType, setDeviceType] = useState<DeviceType>(
     windowSize.width > 1000 ? "desktop" : "mobile"
   );
+  const [me, setMe] = useState<IMe | undefined>(undefined);
   const [users, setUsers] = useState<IUser[]>([]);
   const [openMenu, setOpenMenu] = useState(window.innerWidth >= 1000);
   const [screenTitle, setScreenTitle] = useState<ScreeTitleType | undefined>(
@@ -30,6 +31,16 @@ export function AppContextProvider({
     setOpenMenu(false);
   };
 
+  const refreshApp = () => {
+    try {
+      const json = localStorage.getItem("vmis.platform.web") ?? "{}";
+      setMe(JSON.parse(json) as IMe);
+    } catch (error) {
+      console.log("Cannot get my profile in storage vmis.platform.web", error);
+      setMe(undefined);
+    }
+  };
+
   useEffect(() => {
     handleChangePage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,6 +50,10 @@ export function AppContextProvider({
     setDeviceType(windowSize.width > 1000 ? "desktop" : "mobile");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windowSize.width]);
+
+  useEffect(() => {
+    refreshApp();
+  }, []);
 
   return (
     <AppContext.Provider
@@ -56,6 +71,9 @@ export function AppContextProvider({
 
         screenTitle: screenTitle,
         setScreenTitle: setScreenTitle,
+
+        me: me,
+        setMe: setMe,
 
         appInfo: {
           appVersion: appVersion,
