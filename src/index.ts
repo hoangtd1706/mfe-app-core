@@ -6,4 +6,5 @@ export { default as PrintLog } from "./utils/printLog";
 export { default as RemoveVNMTones } from "./utils/removeVietnameseTones";
 export { default as useWindowSize } from "./utils/useWindowSize";
 export { default as AntdGlobalStyle } from "./contexts/antd.style";
+export { default as ForbiddenPage } from "./pages/ForbiddenPage";
 export * from "./types";
